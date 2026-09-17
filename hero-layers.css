@@ -1,0 +1,70 @@
+/* Background → diagram → transparent portrait → text. */
+.hero {
+  isolation: isolate;
+  background: radial-gradient(ellipse at 78% 35%, #17646a 0%, #07363a 40%, #00181a 76%);
+}
+.hero__glow { z-index: 0; }
+.hero__visual {
+  z-index: 1;
+  opacity: 1;
+  transform: none;
+  transition: none;
+}
+.hero__diagram {
+  width: min(76vw, 1160px);
+  right: 3vw;
+  opacity: .62;
+  filter: blur(.2px) drop-shadow(0 0 12px #e0bd6b20);
+  mask-image: linear-gradient(90deg, transparent, #000 18%, #000);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 18%, #000);
+}
+.hero__portrait {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  pointer-events: none;
+}
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  background: linear-gradient(90deg, #00181ae8 0%, #00181ab0 30%, transparent 57%),
+              linear-gradient(0deg, #00181a 0%, transparent 18%);
+}
+.hero__copy { z-index: 4; }
+.hero__index { z-index: 4; }
+.hero__author { display: none; }
+/* Keep the author's vertical photograph intact at every screen size. */
+.author__portrait .portrait-art {
+  aspect-ratio: auto;
+  display: block;
+}
+.author__portrait .portrait-art img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  object-position: center;
+}
+@media (max-width: 1000px) {
+  .hero__portrait {
+    top: auto;
+    height: 600px;
+    object-position: 80% center;
+  }
+  .hero__diagram { right: -3%; width: min(124vw, 980px); top: 50%; }
+  .hero::after {
+    background: linear-gradient(0deg, #00181a 0%, transparent 14%),
+                linear-gradient(180deg, #00181a88 0%, transparent 55%);
+  }
+}
+@media (max-width: 680px) {
+  .hero__portrait { height: 500px; object-position: 82% center; }
+  .hero__visual { height: 470px; margin-top: 20px; }
+  .hero__diagram { width: 158vw; right: -15vw; top: 48%; opacity: .56; }
+}

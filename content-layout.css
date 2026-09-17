@@ -1,0 +1,97 @@
+/* Compact sections keep details accessible without extending the first view. */
+html { scroll-padding-top: 24px; }
+.section { padding-top: 82px; padding-bottom: 82px; }
+.proof { padding: 65px 7vw; }
+.proof>.proof__cards { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); padding:0; gap:0; border:1px solid var(--line); }
+.proof>.proof__heading { display:grid; grid-template-columns:1fr 2fr; padding:0; border:0; gap:25px; }
+.proof__cards article { min-height: 215px; }
+.section-lead { max-width: 720px; color: #68736b; line-height: 1.8; }
+.learning-outcomes h2,.mini-programs h2,.original-reviews h2 { font-size: clamp(36px,4.5vw,68px); margin-bottom: 25px; }
+.learning-outcomes h2 em,.mini-programs h2 em { color: var(--gold-deep); }
+.detail-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 0 32px; margin: 35px 0; }
+.content-detail { border-top: 1px solid var(--line); margin: 0; }
+.content-detail summary { display:flex; justify-content:space-between; align-items:center; gap:20px; cursor:pointer; list-style:none; font-size:15px; line-height:1.6; padding:20px 0; }
+.content-detail summary::-webkit-details-marker { display:none; }
+.content-detail summary>span { color:var(--gold); flex-shrink:0; }
+.content-detail[open] summary>span { transform:rotate(45deg); }
+.content-detail>div { padding-bottom:22px; }
+.content-detail p,.content-detail li { font-size:13px; line-height:1.85; }
+.content-detail ul { padding-left:18px; }
+.content-detail .button { margin:12px 0; }
+.inline-link { display:inline-block; margin:20px 0; border-bottom:1px solid var(--gold); padding:8px 0; font-size:12px; }
+.study .content-detail { border-color:#f4d58d33; }
+.study-gallery { display:flex; overflow-x:auto; gap:18px; scroll-snap-type:x mandatory; margin:40px 0; padding-bottom:16px; }
+.study-gallery figure { flex:0 0 calc((100% - 36px)/3); scroll-snap-align:start; }
+.study-gallery img,.study-gallery figure:nth-child(2) img { height:190px; }
+.study__meta { margin-top:45px; }
+.curriculum { margin:35px 0 60px; }
+.formats { gap:20px; max-width:none; align-items:start; }
+.format { padding:35px; min-width:0; }
+.format--featured { transform:none; }
+.format .content-detail { margin-bottom:22px; }
+.format .content-detail summary { font-size:12px; }
+.format .content-detail p { font-size:12px; }
+.tariff-price { display:block; font-family:var(--serif); font-size:32px; font-weight:400; margin:20px 0; }
+.format>a { margin-top:20px; }
+.additional-tariffs { margin:35px 0 0; }
+.additional-tariffs .content-detail>div { max-width:850px; }
+.original-reviews { background:#eee7da; }
+.slider-controls { display:flex; justify-content:flex-end; gap:10px; margin:20px 0; }
+.slider-controls button { width:44px; height:44px; border:1px solid var(--gold-deep); border-radius:50%; color:var(--gold-deep); background:transparent; cursor:pointer; }
+.slider-controls button:disabled { opacity:.3; cursor:default; }
+.review-slider { display:flex; gap:18px; overflow-x:auto; scroll-snap-type:x mandatory; padding-bottom:16px; }
+.review-slider article { flex:0 0 calc((100% - 36px)/3); scroll-snap-align:start; background:var(--paper); padding:28px; display:flex; flex-direction:column; }
+.review-slider h3 { font-family:var(--serif); font-size:23px; font-weight:400; line-height:1.4; }
+.review-slider p { font-size:13px; color:#64716a; }
+.review-slider a { margin-top:auto; padding-top:18px; font-size:12px; color:var(--gold-deep); }
+.mini-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:24px; margin:40px 0; }
+.mini-grid article { border:1px solid var(--line); padding:32px; display:flex; flex-direction:column; }
+.mini-grid h3 { font-family:var(--serif); font-size:32px; font-weight:400; line-height:1.25; margin:20px 0; }
+.mini-grid p { font-size:14px; line-height:1.8; }
+.mini-label { text-transform:uppercase; font-size:10px; letter-spacing:.14em; color:var(--gold-deep); }
+.mini-link { margin-top:auto; }
+.mini-grid .content-detail { margin-bottom:25px; }
+.library-prices { display:grid; grid-template-columns:1fr 1fr; gap:25px; margin-top:30px; }
+.testimonials { margin-top:65px; }
+.audience-card { min-height:220px; }
+.audience-card h3 { margin-top:35px; }
+.method-grid,.question-grid,.investigation-grid { margin-top:45px; }
+.method-card { min-height:235px; padding:28px; }
+.method-card h3 { margin-top:22px; }
+.method-final,.questions__conclusion { margin-top:50px; }
+.consultation__options { margin-top:40px; }
+.consultation__options .content-detail { border-color:#f4d58d33; text-align:left; }
+.consultation__options a { font-size:12px; color:var(--mint); margin-top:22px; }
+.consultation__options h3 { margin-top:25px; }
+.faq { align-items:start; }
+.faq__head { position:sticky; top:30px; }
+.final-actions { display:flex; gap:20px; position:relative; flex-wrap:wrap; justify-content:center; }
+.final-cta .button { margin-top:20px; }
+footer nav { display:grid; gap:12px; font-size:12px; }
+footer p { font-size:12px; color:#ffffff99; margin-top:20px; }
+.footer__bottom { flex-wrap:wrap; }
+.footer__bottom p { flex-basis:100%; max-width:1000px; font-size:10px; }
+.sticky-action { position:fixed; bottom:20px; left:50%; transform:translateX(-50%); z-index:25; display:flex; align-items:center; justify-content:space-between; gap:28px; padding:10px 12px 10px 24px; background:#00181af5; color:var(--mint); border:1px solid #f4d58d55; box-shadow:0 8px 35px #0003; border-radius:5px; }
+.sticky-action[hidden] { display:none; }
+.sticky-action>span { white-space:nowrap; font-size:12px; }
+.sticky-action .button { padding:12px 16px; min-width:0; white-space:nowrap; }
+body.menu-is-open .sticky-action { display:none; }
+:focus-visible { outline:2px solid var(--gold); outline-offset:5px; }
+@media(max-width:1000px) {
+  .proof__cards { grid-template-columns:repeat(3,minmax(0,1fr)); }
+  .review-slider article,.study-gallery figure { flex-basis:calc((100% - 18px)/2); }
+}
+@media(max-width:680px) {
+  .section { padding:55px 20px; }
+  .proof { padding:45px 20px; }
+  .proof>.proof__cards,.proof>.proof__heading,.detail-grid,.mini-grid,.library-prices { grid-template-columns:1fr; }
+  .proof__cards article { min-height:170px; }
+  .review-slider article,.study-gallery figure { flex-basis:88%; }
+  .format,.mini-grid article { padding:25px; }
+  .formats { gap:20px; }
+  .faq__head { position:static; }
+  .sticky-action { left:12px; right:12px; bottom:max(10px,env(safe-area-inset-bottom)); transform:none; gap:10px; padding:10px; }
+  .sticky-action>span { font-size:9px; white-space:normal; }
+  .sticky-action .button { font-size:9px; }
+  footer { padding-bottom:100px; }
+}
