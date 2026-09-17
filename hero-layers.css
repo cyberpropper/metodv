@@ -1,4 +1,4 @@
-/* Background → diagram → transparent portrait → text. */
+/* Reference composition: background → illuminated geometry → portrait → type. */
 .hero {
   isolation: isolate;
   background: radial-gradient(ellipse at 78% 35%, #17646a 0%, #07363a 40%, #00181a 76%);
@@ -67,4 +67,78 @@
   .hero__portrait { height: 500px; object-position: 82% center; }
   .hero__visual { height: 470px; margin-top: 20px; }
   .hero__diagram { width: 158vw; right: -15vw; top: 48%; opacity: .56; }
+}
+
+/* Desktop art direction follows the 1280 × 631 reference proportions. */
+.site-header { height:clamp(60px,4.7vw,80px); padding:0 4.4vw; background:#061714; border-color:#dbc38a26; }
+.site-header .brand__mark { width:30px; stroke:#c8aa66; stroke-width:1.2; }
+.site-header .brand b { font-size:12px; }
+.site-header .brand small { font-family:var(--serif); font-size:10px; letter-spacing:.18em; }
+.site-header .desktop-nav { gap:18px; font-size:8px; letter-spacing:0; }
+.site-header .header-cta { border:1px solid #c4a76a; border-radius:30px; padding:8px 14px; font-size:9px; letter-spacing:0; color:#e7cc89; }
+.hero { display:block; min-height:570px; height:44.65vw; max-height:820px; padding:3.65vw 6.75vw 2vw; background:radial-gradient(ellipse at 87% 30%,#53482d66,transparent 35%),radial-gradient(ellipse at 60% 40%,#19302a,transparent 60%),#031310; }
+.hero::before { display:block; z-index:0; background:radial-gradient(circle at 4% 57%,#e5a44266 0,transparent 1.2%),radial-gradient(circle at 1% 46%,#e3a44740 0,transparent 1.4%),radial-gradient(circle at 32% 85%,#e1ad4e65 0,transparent 1%),radial-gradient(circle at 34% 83%,#c4913c3d 0,transparent 1.5%),radial-gradient(circle at 43% 93%,#e3ae5470 0,transparent .8%),radial-gradient(circle at 93% 36%,#d4ac5770 0,transparent 1.2%),radial-gradient(circle at 97% 33%,#d4ac5740 0,transparent 1%),radial-gradient(ellipse at 1% 98%,#b07b2c42 0,transparent 24%); }
+.hero__glow { width:48%; height:80%; right:0; top:0; background:#af9554; filter:blur(100px); opacity:.13; }
+.hero__portrait { inset:0; width:100%; height:100%; object-fit:cover; object-position:center 48%; filter:sepia(.08) saturate(.85); }
+.hero::after { background:linear-gradient(90deg,#02120f99,transparent 47%),linear-gradient(0deg,#03131066,transparent 9%); }
+.hero__copy { padding:0; width:44%; max-width:640px; }
+.hero .eyebrow { margin:0 0 1.5vw -1.7vw; font-size:clamp(7px,.7vw,10px); letter-spacing:.1em; white-space:nowrap; color:#c9b67f; gap:14px; }
+.hero .eyebrow i { width:23px; }
+.hero h1 { font-family:Georgia,'Times New Roman',serif; font-size:clamp(78px,6.85vw,122px); line-height:.9; font-weight:400; letter-spacing:-.045em; margin:0 0 2.1vw; }
+.hero h1 em { display:inline-block; transform:scaleX(.9); transform-origin:left center; font-weight:400; color:#f4d68d; text-shadow:0 2px 20px #d6a95116; }
+.hero__subtitle { font-family:Georgia,'Times New Roman',serif; font-size:clamp(21px,1.8vw,31px); line-height:1.05; color:#e7d59f; margin:0 0 1.1vw; }
+.hero__lead { max-width:390px; width:90%; font-size:clamp(11px,.94vw,16px); line-height:1.45; color:#c1c8c3; margin-bottom:12px; }
+.hero__extra { max-width:360px; font-size:clamp(8px,.7vw,11px); letter-spacing:.16em; text-transform:uppercase; line-height:1.8; color:#b4ad8d; margin:0; }
+.hero__extra::before { content:""; display:block; width:60px; height:1px; background:#ceb475; margin-bottom:10px; }
+.hero__actions { gap:24px; margin-top:1.7vw; align-items:center; }
+.hero__actions .button { min-width:200px; padding:14px 24px; font-size:10px; background:linear-gradient(110deg,#f6df9e,#e5be6b 72%,#f4d793); border:1px solid #b29353; box-shadow:0 0 26px #d8ae4720; color:#273125; }
+.hero__actions .text-link { font-size:8px; letter-spacing:.1em; padding:12px 0; white-space:nowrap; }
+.hero__audience { margin:17px 0 0; font-size:clamp(7px,.62vw,10px); letter-spacing:.01em; color:#a9aa92; }
+.hero__visual { position:absolute; inset:0; height:100%; max-height:none; margin:0; }
+.hero__diagram { width:47vw; max-width:850px; left:32.5vw; right:auto; top:-1.3vw; transform:none; opacity:.9; filter:drop-shadow(0 0 5px #e8b64a33); mask-image:none; -webkit-mask-image:none; }
+.hero__diagram-main { stroke:#d9b467; stroke-width:1; }
+.hero__diagram-ghost { stroke:#efc777; stroke-width:1.1; stroke-dasharray:13 10; }
+.hero__diagram-accent { stroke:#efc87d; stroke-width:.8; opacity:.8; }
+.hero__diagram-horizontal { stroke:#d9b467; }
+.hero__diagram-rings { fill:none; stroke:#c6a665; stroke-width:.6; opacity:.22; }
+.hero__diagram-numbers { fill:#d6b66e; font-family:Georgia,serif; font-size:31px; text-anchor:middle; }
+.hero__diagram-stars { fill:#fff2c9; stroke:#ffe4a8; stroke-width:1.2; }
+.hero__signature { position:absolute; z-index:4; right:3.5vw; top:7.5vw; display:flex; flex-direction:column; align-items:center; color:#c7b37b; gap:15px; }
+.hero__signature p { writing-mode:vertical-rl; font-size:8px; text-transform:uppercase; letter-spacing:.13em; margin:0 0 18px; }
+.hero__signature p span { opacity:.65; }
+.hero__signature i { width:1px; height:38px; background:#c7b37b; }
+.hero__signature b { font-size:18px; font-weight:400; line-height:1; }
+.hero__signature small { text-align:center; font-size:7px; line-height:1.7; text-transform:uppercase; }
+@media(min-width:1600px) { .hero__lead { max-width:510px; } .hero__extra { max-width:450px; } }
+@media(max-width:1100px) and (min-width:761px) {
+  .hero { height:650px; padding-top:60px; }
+  .hero h1 { font-size:76px; }
+  .hero__copy { width:53%; }
+  .hero__portrait { width:115%; max-width:none; left:-6%; }
+  .hero__actions { gap:16px; }
+  .hero__actions .button { min-width:170px; padding:14px 18px; }
+  .hero__signature { right:20px; top:100px; }
+  .hero__diagram { width:62vw; left:27vw; top:35px; }
+}
+@media(max-width:760px) {
+  .site-header { height:68px; padding:0 20px; }
+  .site-header .header-cta { display:none; }
+  .site-header.menu-open .desktop-nav { inset:68px 0 0; font-size:25px; gap:24px; }
+  .hero { height:auto; max-height:none; min-height:0; padding:42px 24px 440px; }
+  .hero__copy { width:100%; max-width:520px; }
+  .hero .eyebrow { font-size:7px; white-space:normal; line-height:1.8; margin:0 0 22px; max-width:330px; }
+  .hero .eyebrow i { flex-shrink:0; width:18px; }
+  .hero h1 { font-size:clamp(54px,12.8vw,86px); line-height:.9; margin-bottom:24px; }
+  .hero__subtitle { font-size:21px; line-height:1.13; margin-bottom:18px; }
+  .hero__lead { font-size:12px; max-width:380px; width:100%; }
+  .hero__extra { font-size:8px; max-width:320px; margin-top:16px; }
+  .hero__actions { flex-direction:row; flex-wrap:wrap; gap:12px 20px; margin-top:22px; }
+  .hero__actions .button { min-width:185px; padding:14px 18px; font-size:9px; }
+  .hero__actions .text-link { font-size:8px; }
+  .hero__audience { font-size:7px; margin-top:16px; max-width:320px; }
+  .hero__portrait { top:auto; bottom:0; left:0; width:100%; height:450px; object-position:78% center; }
+  .hero__visual { position:absolute; top:auto; bottom:0; height:440px; }
+  .hero__diagram { width:610px; max-width:none; left:calc(50% - 350px); top:-22px; opacity:.85; }
+  .hero::after { background:linear-gradient(0deg,#03131055,transparent 16%); }
+  .hero__signature { display:none; }
 }

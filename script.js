@@ -6,6 +6,7 @@ const heroSection = document.querySelector('.hero');
 const footerSection = document.querySelector('footer');
 let scrollScheduled = false;
 function updateStickyAction() {
+  if (!stickyAction || !heroSection || !footerSection) return;
   stickyAction.hidden = heroSection.getBoundingClientRect().bottom > 0 ||
     footerSection.getBoundingClientRect().top < window.innerHeight;
   scrollScheduled = false;
@@ -22,6 +23,7 @@ updateStickyAction();
 const reviewSlider = document.querySelector('.review-slider');
 const previousReview = document.querySelector('[data-slide="prev"]');
 const nextReview = document.querySelector('[data-slide="next"]');
+if (reviewSlider && previousReview && nextReview) {
 function updateReviewControls() {
   previousReview.disabled = reviewSlider.scrollLeft <= 1;
   nextReview.disabled = reviewSlider.scrollLeft + reviewSlider.clientWidth >= reviewSlider.scrollWidth - 2;
@@ -34,6 +36,30 @@ function updateReviewControls() {
 reviewSlider.addEventListener('scroll', updateReviewControls, { passive: true });
 window.addEventListener('resize', updateReviewControls);
 updateReviewControls();
+// Load VK only after an explicit play action; keep a single player active.
+const videoSlots = [...document.querySelectorAll('.review-video')];
+const videoCovers = new Map(videoSlots.map(slot => [slot, slot.innerHTML]));
+function stopReview(slot) {
+  if (slot.querySelector('iframe')) slot.innerHTML = videoCovers.get(slot);
+}
+reviewSlider.addEventListener('click', event => {
+  const play = event.target.closest('.review-play');
+  if (!play) return;
+  const slot = play.closest('.review-video');
+  videoSlots.forEach(stopReview);
+  const player = document.createElement('iframe');
+  player.title = play.getAttribute('aria-label');
+  player.src = `${slot.dataset.player}&autoplay=1`;
+  player.allow = 'autoplay; fullscreen; picture-in-picture; encrypted-media';
+  player.allowFullscreen = true;
+  slot.replaceChildren(player);
+  player.focus();
+});
+const playbackVisibility = new IntersectionObserver(entries => {
+  entries.forEach(entry => { if (!entry.isIntersecting) stopReview(entry.target); });
+}, { threshold: 0 });
+videoSlots.forEach(slot => playbackVisibility.observe(slot));
+}
 const header = document.querySelector('.site-header');
 
 toggle.addEventListener('click', () => {
