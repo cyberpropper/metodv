@@ -43,3 +43,8 @@ body.document-view-open { overflow:hidden; }
   .document-toolbar h2 { flex-basis:70%; }
   .document-toolbar .document-original { order:3; }
 }
+.business-details__list { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; }
+.business-details__list>div { padding:20px; border:1px solid #b79b5c44; border-radius:12px; background:#fffdf6; }
+.business-details__list dt { font-size:11px; color:#68736b; margin-bottom:8px; }
+.business-details__list dd { margin:0; font-size:15px; overflow-wrap:anywhere; }
+@media(max-width:680px) { .business-details__list { grid-template-columns:1fr; } }

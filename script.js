@@ -36,6 +36,8 @@ function updateReviewControls() {
 reviewSlider.addEventListener('scroll', updateReviewControls, { passive: true });
 window.addEventListener('resize', updateReviewControls);
 updateReviewControls();
+}
+if (reviewSlider) {
 // Load VK only after an explicit play action; keep a single player active.
 const videoSlots = [...document.querySelectorAll('.review-video')];
 const videoCovers = new Map(videoSlots.map(slot => [slot, slot.innerHTML]));
